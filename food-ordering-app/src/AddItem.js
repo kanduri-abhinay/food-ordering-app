@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateData } from "./store/Actions";
+import { Link } from "react-router-dom";
 const AddItem = () => {
   const [itemData, updateItemData] = useState({});
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ const AddItem = () => {
           })
           .then((resp) => {
             dispatch(updateData(resp));
-            window.location.href = "/admin";
+            // window.location.href = "/admin";
           })
           .catch((err) => {
             console.log(err);
@@ -64,19 +65,22 @@ const AddItem = () => {
           onChange={(event) => changeHandler(event, "price")}
         />
       </div>
-      <button
-        type="button"
-        className="btn btn-success"
-        style={{
-          width: "50%",
-          marginLeft: "auto",
-          marginRight: "auto",
-          display: "inherit",
-        }}
-        onClick={submitHandler}
-      >
-        Add Item
-      </button>
+
+      <Link to="/admin">
+        <button
+          type="button"
+          className="btn btn-success"
+          style={{
+            width: "50%",
+            marginLeft: "auto",
+            marginRight: "auto",
+            display: "inherit",
+          }}
+          onClick={submitHandler}
+        >
+          Add Item
+        </button>
+      </Link>
     </form>
   );
 };
