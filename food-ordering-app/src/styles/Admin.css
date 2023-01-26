@@ -1,0 +1,18 @@
+.admin-container{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+.add-item-btn{
+    width: 100%;
+}
+.admin-items-container{
+    height: 550px;
+    width: 76%;
+    border: 1px solid black;
+    margin: 10px;
+}
