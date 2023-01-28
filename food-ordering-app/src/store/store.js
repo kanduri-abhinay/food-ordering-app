@@ -1,6 +1,6 @@
 import { createStore } from "redux";
 
-const rootReducer = (state = { data: {} }, action) => {
+const rootReducer = (state = { data: [] }, action) => {
   switch (action.type) {
     case "UPDATE_STATE":
       return { ...state, data: action.payload };

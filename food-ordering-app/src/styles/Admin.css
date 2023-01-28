@@ -11,8 +11,10 @@
     width: 100%;
 }
 .admin-items-container{
-    height: 550px;
+    height: 600px;
     width: 76%;
     border: 1px solid black;
     margin: 10px;
+    border-radius: 0.5rem;
+    overflow-y: auto;
 }
