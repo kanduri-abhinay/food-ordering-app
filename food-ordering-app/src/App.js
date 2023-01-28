@@ -2,6 +2,7 @@ import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import Admin from "./Admin";
+import Cart from "./Cart";
 import Customer from "./Customer";
 import AddItem from "./AddItem";
 import { useEffect } from "react";
@@ -32,6 +33,9 @@ function App() {
       </Route>
       <Route path="/customer" exact>
         <Customer />
+      </Route>
+      <Route path="/customer/cart">
+        <Cart />
       </Route>
     </Switch>
   );

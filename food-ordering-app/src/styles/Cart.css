@@ -1,0 +1,30 @@
+.cart-container{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+.order-item-btn{
+    width: 100%;
+}
+.cart-items-container{
+    height: 600px;
+    width: 76%;
+    border: 1px solid black;
+    margin: 10px;
+    border-radius: 0.5rem;
+    overflow-y: auto;
+}
+.cart-heading{
+    font-size: 27px;
+    font-weight: 600;
+}
+.home-img{
+    position: absolute;
+    cursor: pointer;
+    z-index: 1000;
+    left: 12%;
+}
