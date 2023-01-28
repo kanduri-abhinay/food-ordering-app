@@ -1,9 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateData } from "./store/Actions";
 import { Link } from "react-router-dom";
 const AddItem = () => {
+  const totalData = useSelector((state) => state.data);
   const [itemData, updateItemData] = useState({});
   const dispatch = useDispatch();
   const changeHandler = (event, label) => {
@@ -13,7 +14,7 @@ const AddItem = () => {
     let data = Object.assign(itemData, {
       id: itemData["Restaurant"] + "$" + itemData["item"],
     });
-    fetch("/addItem", {
+    fetch("https://food-ordering-app-server.herokuapp.com/addItem", {
       method: "post",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -21,18 +22,12 @@ const AddItem = () => {
       mode: "no-cors",
       body: JSON.stringify(data),
     }).then((response) => {
-      if (response.status == 200) {
-        fetch("/getItems")
-          .then((response) => {
-            return response.json();
-          })
-          .then((resp) => {
-            dispatch(updateData(resp));
-            // window.location.href = "/admin";
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+      if (response.status === 0) {
+        let mofifiedData = JSON.parse(JSON.stringify(totalData));
+        mofifiedData.push(data);
+        // console.log(mofifiedData);
+        dispatch(updateData(mofifiedData));
+        // window.location.href = "/admin";
       }
     });
   };

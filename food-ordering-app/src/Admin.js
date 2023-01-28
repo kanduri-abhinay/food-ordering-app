@@ -6,16 +6,7 @@ import { updateData } from "./store/Actions";
 import { connect } from "react-redux";
 function Admin(props) {
   const dispatch = useDispatch();
-  //   const data = useSelector((state) => state.data);
-  useEffect(() => {
-    fetchData();
-  }, []);
-  async function fetchData() {
-    let resp = await fetch("/getItems");
-    resp = await resp.json();
-    dispatch(updateData(resp));
-  }
-  //   console.log(props.data);
+  const totalData = useSelector((state) => state.data);
   return (
     <div className="admin-container">
       <Link to="/admin/add-item">
